@@ -21,18 +21,10 @@ const CarouselSection = () => {
       onSlideChange={() => console.log("slide change")}
     >
       <SwiperSlide>
-        <img
-          className="w-full h-[70vh] rounded-md object-cover object-top"
-          src={kasap}
-          alt=""
-        />
+        <img className="w-full h-[70vh] rounded-md object-cover object-top" src={kasap} alt="" />
       </SwiperSlide>
       <SwiperSlide>
-        <img
-          className="w-full h-[70vh] rounded-md object-cover object-top"
-          src={manav}
-          alt=""
-        />
+        <img className="w-full h-[70vh] rounded-md object-cover object-top" src={manav} alt="" />
       </SwiperSlide>
     </Swiper>
   );

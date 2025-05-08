@@ -7,7 +7,7 @@ import { MdOutlinePhoneIphone } from "react-icons/md";
 const ContactCard = () => {
   return (
     <div>
-      <Subtitle>Kontaktformular</Subtitle>
+      <Subtitle className="mb-5">Kontaktformular</Subtitle>
       <div className="grid grid-cols-2 gap-6">
         <label className="input w-full">
           <LuUser />

@@ -5,7 +5,7 @@ import workingHours from "../../../../shared/data/workingHours";
 const ContactInfoCard = () => {
   return (
     <div>
-      <Subtitle>Kontaktinformationen</Subtitle>
+      <Subtitle className="mb-5">Kontaktinformationen</Subtitle>
       <div className="mb-5">
         <p className="mb-2">Address: Kaiserstraße 68, 24143 Kiel, Germany</p>
         <p className="">Telephone: +49 173 2461008</p>
@@ -13,7 +13,7 @@ const ContactInfoCard = () => {
 
       <ul className="list bg-base-100 rounded-box shadow-md">
         <li className="p-4 tracking-wide">
-          <Subtitle>Öffnungszeiten</Subtitle>
+          <Subtitle className="mb-5">Öffnungszeiten</Subtitle>
         </li>
 
         {workingHours.map((workingDay) => (

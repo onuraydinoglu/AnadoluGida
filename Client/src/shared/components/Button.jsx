@@ -1,5 +1,5 @@
-const Button = ({ children }) => {
-  return <div className="btn btn-naturel">{children}</div>;
+const Button = ({ children, className = "" }) => {
+  return <div className={`btn btn-naturel ${className}`}>{children}</div>;
 };
 
 export default Button;

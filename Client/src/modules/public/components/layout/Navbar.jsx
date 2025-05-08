@@ -44,11 +44,10 @@ const Navbar = () => {
         {/* ORTA */}
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal">
-            <li className="relative group">
+            {/* <li className="relative group">
               <details>
                 <summary>Produkte</summary>
 
-                {/* Mega Menü */}
                 <div className="absolute left-1/2 transform -translate-x-1/2 mt-4 w-[900px] bg-base-300 p-6 rounded-box shadow grid grid-cols-3 gap-8 z-50">
                   <div>
                     <h3 className="font-semibold text-green-600 mb-2">
@@ -143,6 +142,9 @@ const Navbar = () => {
                   </div>
                 </div>
               </details>
+            </li> */}
+            <li>
+              <Link to="/product">Produkt</Link>
             </li>
             <li>
               <Link to="/about">Über uns</Link>

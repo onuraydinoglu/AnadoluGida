@@ -1,7 +1,7 @@
 import HoverCard from "../../../../shared/components/HoverCard";
 import ProductCard from "../../../../shared/components/ProductCard";
 
-const WeeklyDealCard = ({ image, category, title, description }) => {
+const ProductsCard = ({ image, category, title, description }) => {
   return (
     <HoverCard className="items-start">
       <ProductCard image={image} category={category} title={title} description={description} />
@@ -9,4 +9,4 @@ const WeeklyDealCard = ({ image, category, title, description }) => {
   );
 };
 
-export default WeeklyDealCard;
+export default ProductsCard;

@@ -9,14 +9,14 @@ import categories from "../../../../shared/data/categories";
 
 import reyon from "../../../../shared/assets/images/reyon.png";
 
+const getCategoryTitle = (id) => {
+  const category = categories.find((cat) => cat.id === id);
+  return category ? category.title : "Bilinmeyen";
+};
+
 const WeeklyDealSection = () => {
   // Yalnızca isDiscounted === true olan ürünleri al
   const newProducts = products.filter((product) => product.isDiscounted);
-
-  const getCategoryTitle = (id) => {
-    const category = categories.find((cat) => cat.id === id);
-    return category ? category.title : "Bilinmeyen";
-  };
 
   return (
     <>
