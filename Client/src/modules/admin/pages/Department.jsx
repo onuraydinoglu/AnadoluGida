@@ -1,5 +1,7 @@
+import DepartmentListSection from "../components/department/DepartmentListSection";
+
 const Department = () => {
-  return <h1>Department</h1>;
+  return <DepartmentListSection />;
 };
 
 export default Department;

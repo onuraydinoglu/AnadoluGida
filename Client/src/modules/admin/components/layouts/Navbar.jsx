@@ -1,6 +1,6 @@
 function Navbar() {
   return (
-    <div className="navbar bg-[#1e1e2d] w-full">
+    <div className="navbar bg-[#F0F0F0] w-full">
       <div className="flex-1">
         <a className="btn btn-sm ms-5">Stok Takip</a>
       </div>
