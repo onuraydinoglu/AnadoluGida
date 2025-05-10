@@ -5,6 +5,7 @@ import Department from "./pages/Department.jsx";
 import AddDepartment from "./components/department/AddDepartment.jsx";
 import Category from "./pages/Category.jsx";
 import Product from "./pages/Product.jsx";
+import AddCategory from "./components/category/AddCategory.jsx";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
           <Route path="department" element={<Department />} />
           <Route path="department/add" element={<AddDepartment />} />
           <Route path="category" element={<Category />} />
+          <Route path="category/add" element={<AddCategory />} />
           <Route path="product" element={<Product />} />
         </Route>
       </Routes>
