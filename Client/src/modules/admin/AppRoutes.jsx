@@ -4,8 +4,9 @@ import Home from "./pages/Home.jsx";
 import Department from "./pages/Department.jsx";
 import AddDepartment from "./components/department/AddDepartment.jsx";
 import Category from "./pages/Category.jsx";
-import Product from "./pages/Product.jsx";
 import AddCategory from "./components/category/AddCategory.jsx";
+import Product from "./pages/Product.jsx";
+import AddProduct from "./components/product/AddProduct.jsx";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route path="category" element={<Category />} />
           <Route path="category/add" element={<AddCategory />} />
           <Route path="product" element={<Product />} />
+          <Route path="product/add" element={<AddProduct />} />
         </Route>
       </Routes>
     </Router>
