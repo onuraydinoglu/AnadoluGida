@@ -1,8 +1,6 @@
 import Button from "../../../../shared/components/Button";
 
 const AddDepartment = () => {
-  console.log("🚀 AddDepartment page rendered");
-
   return (
     <div className="p-4">
       <h2 className="text-2xl font-bold mb-4">Add Department</h2>

@@ -1,5 +1,7 @@
+import CateogryListSection from "../components/category/CategoryListSection";
+
 const Category = () => {
-  return <h1>Category</h1>;
+  return <CateogryListSection />;
 };
 
 export default Category;
