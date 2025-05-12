@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "jJQFnS3SU2E=",
+  "dgSpecHash": "rCxYmR1Opx0=",
   "success": true,
-  "projectFilePath": "C:\\Users\\dell\\Desktop\\React\\AnadoluGida\\Server\\Server.csproj",
+  "projectFilePath": "C:\\Users\\dell\\Desktop\\React\\AnadoluGida\\server\\Server.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\dell\\.nuget\\packages\\azure.core\\1.38.0\\azure.core.1.38.0.nupkg.sha512",
     "C:\\Users\\dell\\.nuget\\packages\\azure.identity\\1.11.4\\azure.identity.1.11.4.nupkg.sha512",

@@ -6,6 +6,6 @@ namespace Server.Entities
 
     public int? DepartmentId { get; set; }
     public Department? Department { get; set; }
-    public ICollection<Product> Products { get; set; } = new List<Product>();
+    public ICollection<Product>? Products { get; set; } = new List<Product>();
   }
 }

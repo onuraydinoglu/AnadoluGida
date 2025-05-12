@@ -4,6 +4,6 @@ namespace Server.Entities
   {
     public string DepartmentName { get; set; }
 
-    public ICollection<Category> Categories { get; set; } = new List<Category>();
+    public ICollection<Category>? Categories { get; set; } = new List<Category>();
   }
 }
