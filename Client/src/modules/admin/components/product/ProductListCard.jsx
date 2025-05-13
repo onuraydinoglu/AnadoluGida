@@ -1,18 +1,17 @@
 import { FaTrash, FaEdit } from "react-icons/fa";
 import Button from "../../../../shared/components/Button";
+import { Link } from "react-router-dom";
 
-const ProductListCard = ({ products, categories, departments }) => {
-  // Kategori adı bulur
+const ProductListCard = ({ products, categories, departments, onDelete }) => {
   const getCategoryName = (categoryId) => {
     const category = categories.find((c) => c.id === categoryId);
-    return category ? category.title : "Unknown Category";
+    return category ? category.categoryName : "Unknown Category";
   };
 
-  // Departman adı bulur
   const getDepartmentName = (categoryId) => {
     const category = categories.find((c) => c.id === categoryId);
     const department = departments.find((d) => d.id === category?.departmentId);
-    return department ? department.title : "Unknown Department";
+    return department ? department.departmentName || department.title : "Unknown Department";
   };
 
   return (
@@ -21,9 +20,9 @@ const ProductListCard = ({ products, categories, departments }) => {
         <thead>
           <tr>
             <th>#</th>
-            <th>Department Name</th>
-            <th>Category Name</th>
-            <th>Product Name</th>
+            <th>Department</th>
+            <th>Category</th>
+            <th>Product</th>
             <th>Price</th>
             <th>Stock</th>
             <th>Actions</th>
@@ -35,16 +34,19 @@ const ProductListCard = ({ products, categories, departments }) => {
               <th>{index + 1}</th>
               <td>{getDepartmentName(product.categoryId)}</td>
               <td>{getCategoryName(product.categoryId)}</td>
-              <td>{product.title}</td>
+              <td>{product.productName}</td>
               <td>{product.price}</td>
               <td>{product.stock}</td>
               <td className="flex gap-2">
-                <Button className="btn-sm btn-warning px-2">
+                <Button className="btn-sm btn-warning px-2" onClick={() => onDelete(product.id)}>
                   <FaTrash /> Delete
                 </Button>
-                <Button className="btn-sm btn-success px-2">
+                <Link
+                  to={`/product/edit/${product.id}`}
+                  className="btn btn-sm btn-success px-2 flex items-center gap-1"
+                >
                   <FaEdit /> Edit
-                </Button>
+                </Link>
               </td>
             </tr>
           ))}

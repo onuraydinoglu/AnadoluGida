@@ -1,14 +1,36 @@
+import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Subtitle from "../../../../shared/components/Subtitle";
 import Button from "../../../../shared/components/Button";
 import ProductListCard from "./ProductListCard";
-
-import departments from "../../../../shared/data/departments";
-import categories from "../../../../shared/data/categories";
-import products from "../../../../shared/data/products";
+import { getProducts, deleteProduct } from "../../../../shared/services/productService";
+import { getCategories } from "../../../../shared/services/categoryService";
+import { getDepartments } from "../../../../shared/services/departmentService";
 
 const ProductListSection = () => {
+  const [products, setProducts] = useState([]);
+  const [categories, setCategories] = useState([]);
+  const [departments, setDepartments] = useState([]);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    const loadData = async () => {
+      const [productData, categoryData, departmentData] = await Promise.all([
+        getProducts(),
+        getCategories(),
+        getDepartments(),
+      ]);
+      setProducts(productData);
+      setCategories(categoryData);
+      setDepartments(departmentData);
+    };
+    loadData();
+  }, []);
+
+  const handleDelete = async (id) => {
+    await deleteProduct(id);
+    setProducts((prev) => prev.filter((p) => p.id !== id));
+  };
 
   return (
     <>
@@ -29,7 +51,12 @@ const ProductListSection = () => {
         </Button>
       </div>
 
-      <ProductListCard products={products} categories={categories} departments={departments} />
+      <ProductListCard
+        products={products}
+        categories={categories}
+        departments={departments}
+        onDelete={handleDelete}
+      />
     </>
   );
 };

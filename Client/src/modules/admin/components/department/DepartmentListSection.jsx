@@ -1,12 +1,37 @@
+import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Subtitle from "../../../../shared/components/Subtitle";
 import Button from "../../../../shared/components/Button";
 import DepartmentListCard from "./DepartmentListCard";
 
-import departments from "../../../../shared/data/departments";
+import { getDepartments, deleteDepartment } from "../../../../shared/services/departmentService";
 
 const DepartmentListSection = () => {
+  const [departments, setDepartments] = useState([]);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    loadDepartments();
+  }, []);
+
+  const loadDepartments = async () => {
+    try {
+      const data = await getDepartments();
+      setDepartments(data);
+    } catch (err) {
+      console.error("Veri alınamadı", err);
+    }
+  };
+
+  const handleDelete = async (id) => {
+    try {
+      await deleteDepartment(id);
+      // Silme sonrası listeyi güncelle
+      setDepartments((prev) => prev.filter((d) => d.id !== id));
+    } catch (err) {
+      console.error("Silme hatası:", err);
+    }
+  };
 
   return (
     <>
@@ -27,7 +52,7 @@ const DepartmentListSection = () => {
         </Button>
       </div>
 
-      <DepartmentListCard departments={departments} />
+      <DepartmentListCard departments={departments} onDelete={handleDelete} />
     </>
   );
 };

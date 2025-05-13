@@ -1,32 +1,42 @@
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
+import { getCategoryById, updateCategory } from "../../../../shared/services/categoryService";
 import { getDepartments } from "../../../../shared/services/departmentService";
-import { addCategory } from "../../../../shared/services/categoryService";
 import Button from "../../../../shared/components/Button";
 
-const AddCategory = () => {
+const UpdateCategory = () => {
+  const { id } = useParams();
+  const navigate = useNavigate();
+
   const [categoryName, setCategoryName] = useState("");
   const [departmentId, setDepartmentId] = useState("");
   const [departments, setDepartments] = useState([]);
-  const navigate = useNavigate();
 
   useEffect(() => {
-    const fetchDepartments = async () => {
-      const data = await getDepartments();
-      setDepartments(data);
+    const fetchData = async () => {
+      const [category, deptData] = await Promise.all([getCategoryById(id), getDepartments()]);
+
+      setCategoryName(category.categoryName);
+      setDepartmentId(category.departmentId);
+      setDepartments(deptData);
     };
-    fetchDepartments();
-  }, []);
+
+    fetchData();
+  }, [id]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await addCategory({ categoryName, departmentId: parseInt(departmentId) });
+    await updateCategory(id, {
+      id: parseInt(id),
+      categoryName,
+      departmentId: parseInt(departmentId),
+    });
     navigate("/category");
   };
 
   return (
     <div className="p-4">
-      <h2 className="text-2xl font-bold mb-4">Add Category</h2>
+      <h2 className="text-2xl font-bold mb-4">Update Category</h2>
       <form className="flex flex-col gap-4" onSubmit={handleSubmit}>
         <select
           className="select"
@@ -56,7 +66,7 @@ const AddCategory = () => {
             Cancel
           </Button>
           <Button type="submit" className="btn btn-accent w-fit">
-            Submit
+            Update
           </Button>
         </div>
       </form>
@@ -64,4 +74,4 @@ const AddCategory = () => {
   );
 };
 
-export default AddCategory;
+export default UpdateCategory;

@@ -1,12 +1,9 @@
-import products from "../../../../shared/data/products";
-import categories from "../../../../shared/data/categories";
+const ProductTable = ({ products, categories }) => {
+  const getCategoryTitle = (id) => {
+    const category = categories.find((cat) => cat.id === id);
+    return category ? category.categoryName : "Bilinmeyen";
+  };
 
-const getCategoryTitle = (id) => {
-  const category = categories.find((cat) => cat.id === id);
-  return category ? category.title : "Bilinmeyen";
-};
-
-const ProdcutTable = () => {
   return (
     <div className="overflow-x-auto">
       <table className="table">
@@ -23,14 +20,14 @@ const ProdcutTable = () => {
         </thead>
         <tbody>
           {products.map((product, index) => (
-            <tr key={index}>
+            <tr key={product.id}>
               <th>{index + 1}</th>
-              <td>{product.title}</td>
+              <td>{product.productName}</td>
               <td>{getCategoryTitle(product.categoryId)}</td>
               <td>{product.price}</td>
               <td>{product.stock}</td>
               <td>{product.description}</td>
-              <td>{product.isDiscounted ? "Discounted" : "No discount"}</td>
+              <td>{product.discount ? "Discounted" : "No discount"}</td>
             </tr>
           ))}
         </tbody>
@@ -39,4 +36,4 @@ const ProdcutTable = () => {
   );
 };
 
-export default ProdcutTable;
+export default ProductTable;
