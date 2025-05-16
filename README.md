@@ -14,7 +14,7 @@ Aşağıdaki adımları takip ederek projeyi kendi bilgisayarınızda kurup çal
 git clone https://github.com/onuraydinoglu/AnadoluGida.git
 cd AnadoluGida
 
-# 2️⃣ Migration Silme (Opsiyonel)
+# 2️⃣ Migration Silme
 cd Server
 dotnet ef migrations remove
 # Gerekirse bu komutu birden fazla kez çalıştırarak tüm migrationları kaldırabilirsiniz.
