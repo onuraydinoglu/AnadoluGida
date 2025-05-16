@@ -1,9 +1,14 @@
 function Footer() {
   return (
-    <footer className="footer sm:footer-horizontal footer-center bg-[#1e1e2d] text-white p-4">
-      <aside>
-        <p>Copyright © {new Date().getFullYear()} - All right reserved by GradeApp University</p>
-      </aside>
+    <footer className="bg-[#E9E9E9] mt-10 py-4">
+      <div className="container mx-auto text-center text-sm">
+        <p>
+          Copyright © - 2025 |
+          <a href="https://onitechnology.me" target="_blank" rel="noopener noreferrer">
+            <span> Oni Technology</span>
+          </a>
+        </p>
+      </div>
     </footer>
   );
 }
